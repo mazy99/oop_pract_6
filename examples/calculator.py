@@ -22,9 +22,11 @@ class InputReader:
 class ValueParser:
 
     @staticmethod
-    def parse_int(value: str) -> Union[float, str]:
+    def parse_int(value: str) -> Union[int, float, str]:
         try:
-            return float(value)
+            if "." in value:
+                return float(value)
+            return int(value)
         except ValueError:
             return value
 
