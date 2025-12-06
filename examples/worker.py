@@ -1,4 +1,5 @@
 import logging
+import os
 import sys
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
@@ -97,7 +98,11 @@ class Staff:
                 if name is not None and post is not None and year is not None:
                     self.workers.append(Worker(name=name, post=post, year=year))
 
-    def save(self, filename):
+    def save(self, filename: str):
+        folder = "xml_files"
+        os.makedirs(folder, exist_ok=True)
+        path = os.path.join(folder, filename)
+
         root = ET.Element("workers")
         for worker in self.workers:
             worker_element = ET.Element("worker")
@@ -114,7 +119,7 @@ class Staff:
             root.append(worker_element)
 
         tree = ET.ElementTree(root)
-        with open(filename, "wb") as fout:
+        with open(path, "wb") as fout:
             tree.write(fout, encoding="utf-8", xml_declaration=True)
 
 
