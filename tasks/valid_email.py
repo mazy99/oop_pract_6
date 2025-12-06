@@ -2,7 +2,17 @@
 # -*- coding: utf-8 -*-
 
 
-from exceptions import InvalidEmailError
+class InvalidEmailError(Exception):
+
+    def __init__(
+        self, email: str, message: str = "адрес не содержит '@' или домена"
+    ) -> None:
+        self.email = email
+        self.message = message
+        super(InvalidEmailError, self).__init__(self.message)
+
+    def __str__(self) -> str:
+        return f"{self.email} -> {self.message}"
 
 
 class EmailValidator:
