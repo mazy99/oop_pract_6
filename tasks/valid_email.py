@@ -128,6 +128,7 @@ if __name__ == "__main__":
     logging.basicConfig(
         filename="emailbook.log",
         level=logging.INFO,
+        encoding="utf-8",
     )
 
     book = AddressBook()
