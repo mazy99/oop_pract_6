@@ -141,7 +141,7 @@ if __name__ == "__main__":
                 break
 
             elif command == "add":
-                name = input("Имя: ")
+                name = input("Ф.И.О: ")
                 email = input("Email: ")
                 book.add(name, email)
                 logging.info(f"Добавлен контакт: {name}, {email}")
