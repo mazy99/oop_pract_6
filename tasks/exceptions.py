@@ -4,7 +4,9 @@
 
 class InvalidEmailError(Exception):
 
-    def __init__(self, email: str, message: str = "Invalid email address") -> None:
+    def __init__(
+        self, email: str, message: str = "адрес не содержит '@' или домена"
+    ) -> None:
         self.email = email
         self.message = message
         super(InvalidEmailError, self).__init__(self.message)
