@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-from exceptions import InvalidEmailError
-from valid_email import EmailValidator
+from valid_email import EmailValidator, InvalidEmailError
 
 
 def main():
