@@ -1,8 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <students>
   <student>
-    <name>Левашев Т.Р</name>
-    <group>256</group>
-    <grades>5 5 5 2 2</grades>
+    <name>Борисов Б.Б</name>
+    <group>777</group>
+    <grades>2 2 2 2 2</grades>
+  </student>
+  <student>
+    <name>Петров П.П</name>
+    <group>999</group>
+    <grades>5 5 5 5 4</grades>
   </student>
 </students>
