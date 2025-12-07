@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<students>
+  <student>
+    <name>Левашев Т.Р</name>
+    <group>256</group>
+    <grades>5 5 5 2 2</grades>
+  </student>
+</students>

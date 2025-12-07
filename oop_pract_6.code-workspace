@@ -15,7 +15,9 @@
 		"tests"
     ],
 	"python.analysis.extraPaths": [
-      "${workspaceFolder}/tasks"
+      "${workspaceFolder}/tasks",
+	  "${workspaceFolder}/tasks/task_2"
 	],
+
 	}
 }
