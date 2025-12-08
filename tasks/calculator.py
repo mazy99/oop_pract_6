@@ -2,9 +2,6 @@
 # -*- coding: utf-8 -*-
 
 
-from typing import Union
-
-
 class InputReader:
 
     @staticmethod
@@ -22,7 +19,7 @@ class InputReader:
 class ValueParser:
 
     @staticmethod
-    def parse_int(value: str) -> Union[int, float, str]:
+    def parse_int(value: str) -> int | float | str:
         try:
             if "." in value:
                 return float(value)
@@ -33,14 +30,14 @@ class ValueParser:
 
 class Calculator:
 
-    a: Union[int, float, str]
-    b: Union[int, float, str]
+    a: int | float | str
+    b: int | float | str
 
-    def __init__(self, a: Union[float, int, str], b: Union[float, int, str]) -> None:
+    def __init__(self, a: int | float | str, b: int | float | str) -> None:
         self.a = a
         self.b = b
 
-    def calculate(self) -> Union[float, str]:
+    def calculate(self) -> int | float | str:
         if isinstance(self.a, (int, float)) and isinstance(self.b, (int, float)):
             return self.a + self.b
         return str(self.a) + str(self.b)
