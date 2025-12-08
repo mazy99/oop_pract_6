@@ -3,7 +3,6 @@
 
 
 import random
-from typing import List
 
 
 class MatrixGenerator:
@@ -13,7 +12,7 @@ class MatrixGenerator:
         self.min_value = min_value
         self.max_value = max_value
 
-    def generate_matrix(self) -> List[List[int]]:
+    def generate_matrix(self) -> list[list[int]]:
         matrix = []
         for _ in range(self.rows):
             row = [
