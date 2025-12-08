@@ -10,12 +10,12 @@ try:
     print(f"10 divided by {val} is {tmp}")
 
 except ValueError as ve:
-    print("ValueError: {0}".format(ve))
+    print(f"ValueError: {ve}")
 
 except ZeroDivisionError as zde:
-    print("ZeroDivisionError: {0}".format(zde))
+    print(f"ZeroDivisionError: {zde}")
 
 except Exception as ex:
-    print("Error: {0}".format(ex))
+    print(f"Error: {ex}")
 
 print("stop")
