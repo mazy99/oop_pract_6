@@ -50,17 +50,23 @@ class Staff:
         self.workers.sort(key=lambda worker: worker.name)
 
     def __str__(self) -> str:
+        if not self.workers:
+            return "Нет данных о работниках"
+
         table = []
-        line = f"+{'-'*4}-{'-'*32}-{'-'*22}-{'-'*10}+"
+        line = f"+{'-' * 6}+{'-' * 34}+{'-' * 24}+{'-' * 12}+"
         table.append(line)
+
         table.append(f"| {'№':^4} | {'Ф.И.О':^32} | {'Должность':^22} | {'Год':^10} |")
         table.append(line)
 
         for idx, worker in enumerate(self.workers, 1):
-            table.append(
-                f"| {idx:>4} | {worker.name:<32} | {worker.post:<22}\
-                | {worker.year:>10} |"
-            )
+
+            name = worker.name[:30] + ".." if len(worker.name) > 32 else worker.name
+            post = worker.post[:20] + ".." if len(worker.post) > 22 else worker.post
+
+            table.append(f"| {idx:>4} | {name:<32} | {post:<22} | {worker.year:>10} |")
+
         table.append(line)
         return "\n".join(table)
 
