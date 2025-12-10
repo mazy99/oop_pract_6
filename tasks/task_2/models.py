@@ -3,7 +3,6 @@
 
 
 from dataclasses import dataclass, field
-from typing import List
 
 from exceptions import InvalidGradeError
 
@@ -12,7 +11,7 @@ from exceptions import InvalidGradeError
 class Student:
     name: str
     group: int
-    grades: List[int]
+    grades: list[int]
 
     def has_failing_grades(self) -> bool:
         return 2 in self.grades
@@ -20,7 +19,7 @@ class Student:
 
 @dataclass
 class Staff:
-    students: List[Student] = field(default_factory=lambda: [])
+    students: list[Student] = field(default_factory=lambda: [])
 
     def add(self, name: str, group: int, grades: str) -> None:
 
@@ -43,24 +42,16 @@ class Staff:
         if not self.students:
             return "Список студентов пуст."
 
-        table = []
-        line = "+-{}-+-{}-+-{}-+-{}-+".format("-" * 4, "-" * 30, "-" * 20, "-" * 20)
-        table.append(line)
-        table.append(
-            "| {:^4} | {:^30} | {:^20} | {:^20} |".format(
-                "№", "Ф.И.О", "Группа", "Оценки"
-            )
-        )
-        table.append(line)
+        line = f"+-{'-' * 4}-+-{'-' * 30}-+-{'-' * 20}-+-{'-' * 20}-+"
+        header = f"| {'№':^4} | {'Ф.И.О':^30} | {'Группа':^20} | {'Оценки':^20} |"
 
-        for idx, student in enumerate(self.students, 1):
-            table.append(
-                "| {:>4} | {:<30} | {:>20} | {:<20} |".format(
-                    idx, student.name, student.group, " ".join(map(str, student.grades))
-                )
-            )
-        table.append(line)
-        return "\n".join(table)
+        rows = [
+            f"| {idx:>4} | {student.name:<30} | {student.group:>20} "
+            f"| {' '.join(map(str, student.grades)):<20} |"
+            for idx, student in enumerate(self.students, 1)
+        ]
 
-    def select(self) -> List[Student]:
+        return "\n".join([line, header, line, *rows, line])
+
+    def select(self) -> list[Student]:
         return [student for student in self.students if student.has_failing_grades()]

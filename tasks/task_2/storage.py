@@ -4,7 +4,6 @@
 
 import os
 import xml.etree.ElementTree as ET
-from typing import List
 
 from models import Student
 
@@ -12,7 +11,7 @@ from models import Student
 class StudentStorage:
 
     @staticmethod
-    def load(filename: str = "students.xml") -> List[Student]:
+    def load(filename: str = "students.xml") -> list[Student]:
         folder = os.path.abspath(
             os.path.join(os.path.dirname(__file__), "..", "..", "xml_files")
         )
@@ -24,7 +23,7 @@ class StudentStorage:
         tree = ET.parse(path)
         root = tree.getroot()
 
-        students: List[Student] = []
+        students: list[Student] = []
 
         for student_element in root:
             name_elem = student_element.find("name")
